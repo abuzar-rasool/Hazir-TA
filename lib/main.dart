@@ -12,7 +12,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: Color.fromRGBO(101, 40, 110, 1),
+        accentColor: Color.fromRGBO(108, 60, 99, 1),
+        primaryColorLight: Color.fromRGBO(213, 196, 190, 1),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(title: 'Hazir TA'),

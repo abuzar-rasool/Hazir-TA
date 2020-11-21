@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-
+import 'package:table_calendar/table_calendar.dart';
 
 class TutorDashboard extends StatefulWidget {
   @override
@@ -9,6 +9,20 @@ class TutorDashboard extends StatefulWidget {
 }
 
 class _TutorDashboardState extends State<TutorDashboard> {
+  CalendarController _calendarController = CalendarController();
+
+
+  @override
+  void initState() {
+    super.initState();
+    _calendarController = CalendarController();
+  }
+
+  @override
+  void dispose() {
+    _calendarController.dispose();
+    super.dispose();
+  }
 
   dashboardAppBar () {
     return Row(
@@ -28,7 +42,7 @@ class _TutorDashboardState extends State<TutorDashboard> {
                 height: 170,
                 width: 300,
                 decoration: BoxDecoration(
-                  color: Colors.deepPurple,
+                  color: Theme.of(context).primaryColor,
                   borderRadius: BorderRadius.only(
                     bottomRight: Radius.circular(70.0)
                   )
@@ -88,13 +102,13 @@ class _TutorDashboardState extends State<TutorDashboard> {
               horizontal: 25.0,
           ),
           child: Material(
-            color: Colors.deepPurple,
+            color: Theme.of(context).primaryColor,
             elevation: 8,
             borderRadius: BorderRadius.circular(70),
             child: InkWell(
               focusColor: Colors.white,
-              splashColor: Colors.deepPurple,
-              highlightColor: Colors.deepPurple,
+              splashColor: Theme.of(context).primaryColor,
+              highlightColor: Theme.of(context).primaryColor,
               child: Padding(
                 padding: EdgeInsets.all(5.0),
                 child: Icon(
@@ -117,31 +131,195 @@ class _TutorDashboardState extends State<TutorDashboard> {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text("Enrolled Courses"),
-        Expanded(
-          child: ListView.builder(
-              shrinkWrap: true,
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          child: Text("Enrolled Courses",
+            style: TextStyle(
+                letterSpacing: 2.0,
+                color: Colors.black54,
+                fontWeight: FontWeight.bold,
+                fontSize: 18
+            ),),
+        ),
+        Container(
+          width: double.maxFinite,
+          height: 200,
+          child: GlowingOverscrollIndicator(
+            axisDirection: AxisDirection.right,
+            color: Theme.of(context).primaryColor,
+            child: ListView.builder(
+              padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
               scrollDirection: Axis.horizontal,
-              itemCount: 3,
-              itemBuilder: (BuildContext context, int index) {
-                return Container(
-                  height: 50,
-                  width: 50,
-                  child: Text("Courses")
+              itemCount: 8,
+            itemBuilder: (context, int index) {
+                return Padding(
+                  padding: const EdgeInsets.all(7.0),
+                  child: Material(
+                    borderRadius: BorderRadius.circular(30.0),
+                    elevation: 5.0,
+                    child: Container(
+                      height: 150,
+                      width: 140,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
+                      child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text("CS-335",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  letterSpacing: 1.0,
+                                  color: Theme.of(context).primaryColor,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 22
+                              ),),
+                            Text("Database Systems",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  letterSpacing: 1.0,
+                                  color: Colors.black45,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 12
+                              ),),
+                            Text("T2",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  letterSpacing: 1.0,
+                                  color: Colors.black45,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 12
+                              ),),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
                 );
-              }
+            }
+            ),
           ),
+        )
+      ],
+    );
+  }
+
+  sessionCalenderView() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          child: Text("All Sesssions",
+            style: TextStyle(
+                letterSpacing: 2.0,
+                color: Colors.black54,
+                fontWeight: FontWeight.bold,
+                fontSize: 18
+            ),),
+        ),
+        TableCalendar(
+            calendarController: _calendarController,
+            calendarStyle: CalendarStyle(
+              todayColor: Theme.of(context).accentColor,
+              selectedColor: Theme.of(context).primaryColor,
+              markersColor: Theme.of(context).primaryColorLight,
+            ),
         ),
       ],
     );
   }
 
-  mainWidget() {
+  timeSlotsView() {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // dashboardAppBar(),
-        enrolledCourses()
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+          child: Text("Enrolled Courses",
+            style: TextStyle(
+                letterSpacing: 2.0,
+                color: Colors.black54,
+                fontWeight: FontWeight.bold,
+                fontSize: 18
+            ),),
+        ),
+        Container(
+          child: ListView.builder(
+              shrinkWrap: true,
+              physics: ScrollPhysics(),
+              scrollDirection: Axis.vertical,
+              itemCount: 5,
+              itemBuilder: (context, int index) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 10.0,
+                      horizontal: 20.0
+                  ),
+                  child: Material(
+                    elevation: 5.0,
+                    borderRadius: BorderRadius.circular(30.0),
+                    child: Row(
+                      children: [
+                        Container(
+                          height: 90,
+                          width: 280,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30.0),
+                              color: Colors.white
+                          ),
+                          child: Center(
+                            child: Text("General Session",
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            )
+                          ),
+                        ),
+                        Container(
+                          height: 90,
+                          width: 164,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30.0),
+                              color: Theme.of(context).primaryColor
+                          ),
+                          child: Center(
+                              child: Text("2:15pm - 3:00pm",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              )
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              }
+          ),
+        )
       ],
+    );
+  }
+
+  mainWidget() {
+    return ListView(
+        physics: BouncingScrollPhysics(),
+        shrinkWrap: true,
+        children: [
+          dashboardAppBar(),
+          enrolledCourses(),
+          sessionCalenderView(),
+          timeSlotsView()
+        ],
     );
   }
 
