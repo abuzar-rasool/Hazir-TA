@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hazir_ta/student_screens/coursePage.dart';
+import 'package:hazir_ta/student_screens/student_dashboard.dart';
 import 'package:hazir_ta/tutor_screens/dashboard.dart';
 
 void main() {
@@ -10,6 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primaryColor: Color.fromRGBO(101, 40, 110, 1),
@@ -51,13 +54,34 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             FlatButton(
+              color: Colors.black,
                 onPressed: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => TutorDashboard()),
                   );
                 },
-                child: Text("Tutor Dashboard")
+                child: Text("Tutor Dashboard", style: TextStyle(color: Colors.white),)
+            ),
+            FlatButton(
+                color: Colors.black,
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => StudentDashboard()),
+                  );
+                },
+                child: Text("Student Dashboard", style: TextStyle(color: Colors.white),)
+            ),
+            FlatButton(
+                color: Colors.black,
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => StudentCoursePage()),
+                  );
+                },
+                child: Text("Student Course Page", style: TextStyle(color: Colors.white),)
             )
           ],
         ),

@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:table_calendar/table_calendar.dart';
 
-class TutorDashboard extends StatefulWidget {
+class StudentDashboard extends StatefulWidget {
   @override
-  _TutorDashboardState createState() => _TutorDashboardState();
+  _StudentDashboardState createState() => _StudentDashboardState();
 }
 
-class _TutorDashboardState extends State<TutorDashboard> {
+class _StudentDashboardState extends State<StudentDashboard> {
   CalendarController _calendarController = CalendarController();
 
 
@@ -42,17 +42,17 @@ class _TutorDashboardState extends State<TutorDashboard> {
                 height: 170,
                 width: 300,
                 decoration: BoxDecoration(
-                  color: Theme.of(context).primaryColor,
-                  borderRadius: BorderRadius.only(
-                    bottomRight: Radius.circular(70.0)
-                  )
+                    color: Theme.of(context).primaryColor,
+                    borderRadius: BorderRadius.only(
+                        bottomRight: Radius.circular(70.0)
+                    )
                 ),
               ),
             ),
             Padding(
               padding:  EdgeInsets.symmetric(
                   vertical: 45.0,
-                horizontal: 45.0
+                  horizontal: 45.0
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -62,14 +62,14 @@ class _TutorDashboardState extends State<TutorDashboard> {
                     radius: 45,
                     backgroundColor: Colors.white,
                     child: CircleAvatar(
-                      radius: 40,
-                      backgroundImage: NetworkImage("https://i2.wp.com/philanthropywomen.org/wp-content/uploads/2020/06/Screen-Shot-2020-06-29-at-3.15.06-PM.png?fit=277%2C407&ssl=1")
-        ),
+                        radius: 40,
+                        backgroundImage: NetworkImage("https://i2.wp.com/philanthropywomen.org/wp-content/uploads/2020/06/Screen-Shot-2020-06-29-at-3.15.06-PM.png?fit=277%2C407&ssl=1")
+                    ),
                   ),
                   Padding(
                     padding:  EdgeInsets.symmetric(
-                      horizontal: 20.0,
-                      vertical: 14.0
+                        horizontal: 20.0,
+                        vertical: 26.0
                     ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -77,8 +77,8 @@ class _TutorDashboardState extends State<TutorDashboard> {
                       children: [
                         Text("Welcome,",
                           style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18
+                              color: Colors.white,
+                              fontSize: 18
                           ),
                         ),
                         Text("Emma",
@@ -88,23 +88,6 @@ class _TutorDashboardState extends State<TutorDashboard> {
                               fontWeight: FontWeight.bold
                           ),
                         ),
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Icon(
-                                Icons.star_half,
-                                color: Colors.white,
-                            ),
-                            Center(
-                              child: Text("4.4",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 15.0
-                              ),
-                              ),
-                            )
-                          ],
-                        )
                       ],
                     ),
                   ),
@@ -115,8 +98,8 @@ class _TutorDashboardState extends State<TutorDashboard> {
         ),
         Padding(
           padding: EdgeInsets.symmetric(
-              vertical: 25.0,
-              horizontal: 25.0,
+            vertical: 25.0,
+            horizontal: 25.0,
           ),
           child: Material(
             color: Theme.of(context).primaryColor,
@@ -129,9 +112,9 @@ class _TutorDashboardState extends State<TutorDashboard> {
               child: Padding(
                 padding: EdgeInsets.all(5.0),
                 child: Icon(
-                    Icons.person_rounded,
-                    size: 33.0,
-                    color: Colors.white,
+                  Icons.person_rounded,
+                  size: 33.0,
+                  color: Colors.white,
                 ),
               ),
               borderRadius: BorderRadius.circular(40),
@@ -151,86 +134,6 @@ class _TutorDashboardState extends State<TutorDashboard> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10.0),
           child: Text("Enrolled Courses",
-            style: TextStyle(
-                letterSpacing: 2.0,
-                color: Colors.black54,
-                fontWeight: FontWeight.bold,
-                fontSize: 18
-            ),),
-        ),
-        Container(
-          width: double.maxFinite,
-          height: 200,
-          child: GlowingOverscrollIndicator(
-            axisDirection: AxisDirection.right,
-            color: Theme.of(context).primaryColor,
-            child: ListView.builder(
-              padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
-              scrollDirection: Axis.horizontal,
-              itemCount: 8,
-            itemBuilder: (context, int index) {
-                return Padding(
-                  padding: const EdgeInsets.all(7.0),
-                  child: Material(
-                    borderRadius: BorderRadius.circular(30.0),
-                    elevation: 5.0,
-                    child: Container(
-                      height: 150,
-                      width: 140,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30.0),
-                      ),
-                      child: Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text("CS-335",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  letterSpacing: 1.0,
-                                  color: Theme.of(context).primaryColor,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 22
-                              ),),
-                            Text("Database Systems",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  letterSpacing: 1.0,
-                                  color: Colors.black45,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 12
-                              ),),
-                            Text("T2",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  letterSpacing: 1.0,
-                                  color: Colors.black45,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 12
-                              ),),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                );
-            }
-            ),
-          ),
-        )
-      ],
-    );
-  }
-
-  tutoredCourses() {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10.0),
-          child: Text("Tutored Courses",
             style: TextStyle(
                 letterSpacing: 2.0,
                 color: Colors.black54,
@@ -265,7 +168,7 @@ class _TutorDashboardState extends State<TutorDashboard> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Text("CS-225",
+                              Text("CS-335",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                     letterSpacing: 1.0,
@@ -273,7 +176,7 @@ class _TutorDashboardState extends State<TutorDashboard> {
                                     fontWeight: FontWeight.bold,
                                     fontSize: 22
                                 ),),
-                              Text("Object Oriented Programming",
+                              Text("Database Systems",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                     letterSpacing: 1.0,
@@ -281,7 +184,7 @@ class _TutorDashboardState extends State<TutorDashboard> {
                                     fontWeight: FontWeight.bold,
                                     fontSize: 12
                                 ),),
-                              Text("L1",
+                              Text("T2",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                     letterSpacing: 1.0,
@@ -319,12 +222,12 @@ class _TutorDashboardState extends State<TutorDashboard> {
             ),),
         ),
         TableCalendar(
-            calendarController: _calendarController,
-            calendarStyle: CalendarStyle(
-              todayColor: Theme.of(context).accentColor,
-              selectedColor: Theme.of(context).primaryColor,
-              markersColor: Theme.of(context).primaryColorLight,
-            ),
+          calendarController: _calendarController,
+          calendarStyle: CalendarStyle(
+            todayColor: Theme.of(context).accentColor,
+            selectedColor: Theme.of(context).primaryColor,
+            markersColor: Theme.of(context).primaryColorLight,
+          ),
         ),
       ],
     );
@@ -370,13 +273,13 @@ class _TutorDashboardState extends State<TutorDashboard> {
                               color: Colors.white
                           ),
                           child: Center(
-                            child: Text("General Session",
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            )
+                              child: Text("General Session",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              )
                           ),
                         ),
                         Container(
@@ -409,15 +312,14 @@ class _TutorDashboardState extends State<TutorDashboard> {
 
   mainWidget() {
     return ListView(
-        physics: BouncingScrollPhysics(),
-        shrinkWrap: true,
-        children: [
-          dashboardAppBar(),
-          enrolledCourses(),
-          tutoredCourses(),
-          sessionCalenderView(),
-          timeSlotsView()
-        ],
+      physics: BouncingScrollPhysics(),
+      shrinkWrap: true,
+      children: [
+        dashboardAppBar(),
+        enrolledCourses(),
+        sessionCalenderView(),
+        timeSlotsView()
+      ],
     );
   }
 
@@ -425,9 +327,9 @@ class _TutorDashboardState extends State<TutorDashboard> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.white,
-        body: mainWidget()
-        ),
+          backgroundColor: Colors.white,
+          body: mainWidget()
+      ),
     );
   }
 }
