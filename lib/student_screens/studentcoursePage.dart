@@ -17,8 +17,15 @@ class _StudentCoursePageState extends State<StudentCoursePage> {
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 0.0, right: 0.0, bottom: 15.0),
+            child: Text(
+              "Info",
+              style: TextStyle(letterSpacing: 2.0, color: Colors.black54, fontWeight: FontWeight.bold, fontSize: 18),
+            ),
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -96,11 +103,9 @@ class _StudentCoursePageState extends State<StudentCoursePage> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("Available Peer Tutors",
-            style: TextStyle(
-              color: Theme.of(context).accentColor,
-              fontSize: 22
-            ),
+          Text(
+            "Available TAs",
+            style: TextStyle(letterSpacing: 2.0, color: Colors.black54, fontWeight: FontWeight.bold, fontSize: 18),
           ),
           SizedBox(height: 10.0,),
           ListView.builder(
@@ -211,6 +216,29 @@ class _StudentCoursePageState extends State<StudentCoursePage> {
     );
   }
 
+  courseDeleteButton() {
+    return FlatButton(
+        height: 60.0,
+        color: Colors.red,
+        padding: EdgeInsets.all(0.0),
+        onPressed: () {print("pressed");},
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(10.0),
+            topRight: Radius.circular(10.0)
+          )
+        ),
+        child: Text(
+          "Delete this course",
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 18.0,
+
+          ),
+        ),
+    );
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -268,10 +296,12 @@ class _StudentCoursePageState extends State<StudentCoursePage> {
             elevation: 5,
           ),
           body: ListView(
+            padding: EdgeInsets.all(0.0),
             physics: BouncingScrollPhysics(),
             children: [
               courseDetails(),
-              availablePeerTutors()
+              availablePeerTutors(),
+              courseDeleteButton()
             ],
           ),
         )

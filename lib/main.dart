@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hazir_ta/student_screens/coursePage.dart';
+import 'package:flutter/services.dart';
+import 'package:hazir_ta/student_screens/studentcoursePage.dart';
 import 'package:hazir_ta/student_screens/student_dashboard.dart';
+import 'package:hazir_ta/student_screens/tutorProfileScreen.dart';
 import 'package:hazir_ta/tutor_screens/dashboard.dart';
 
 void main() {
@@ -35,16 +37,15 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
+
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+        statusBarColor: Theme.of(context).primaryColor
+    ));
+
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -82,6 +83,16 @@ class _MyHomePageState extends State<MyHomePage> {
                   );
                 },
                 child: Text("Student Course Page", style: TextStyle(color: Colors.white),)
+            ),
+            FlatButton(
+                color: Colors.black,
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => TutorProfile()),
+                  );
+                },
+                child: Text("Tutor Profile", style: TextStyle(color: Colors.white),)
             )
           ],
         ),

@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:hazir_ta/student_screens/addNewCourse.dart';
+import 'package:hazir_ta/student_screens/studentAccountSettings.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class StudentDashboard extends StatefulWidget {
@@ -103,7 +105,7 @@ class _StudentDashboardState extends State<StudentDashboard> {
           ),
           child: Material(
             color: Theme.of(context).primaryColor,
-            elevation: 8,
+            elevation: 5,
             borderRadius: BorderRadius.circular(70),
             child: InkWell(
               focusColor: Colors.white,
@@ -113,12 +115,17 @@ class _StudentDashboardState extends State<StudentDashboard> {
                 padding: EdgeInsets.all(5.0),
                 child: Icon(
                   Icons.person_rounded,
-                  size: 33.0,
+                  size: 30.0,
                   color: Colors.white,
                 ),
               ),
               borderRadius: BorderRadius.circular(40),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => StudentAccountSettings()),
+                );
+              },
             ),
           ),
         )
@@ -133,13 +140,29 @@ class _StudentDashboardState extends State<StudentDashboard> {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10.0),
-          child: Text("Enrolled Courses",
-            style: TextStyle(
-                letterSpacing: 2.0,
-                color: Colors.black54,
-                fontWeight: FontWeight.bold,
-                fontSize: 18
-            ),),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text("Enrolled Courses",
+                style: TextStyle(
+                    letterSpacing: 2.0,
+                    color: Colors.black54,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18
+                ),),
+              IconButton(
+                  icon: Icon(
+                      Icons.add,
+                      color: Colors.black54,
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => StudentNewCourse()),
+                    );
+                  })
+            ],
+          ),
         ),
         Container(
           width: double.maxFinite,
@@ -213,20 +236,37 @@ class _StudentDashboardState extends State<StudentDashboard> {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10.0),
-          child: Text("All Sesssions",
-            style: TextStyle(
-                letterSpacing: 2.0,
-                color: Colors.black54,
-                fontWeight: FontWeight.bold,
-                fontSize: 18
-            ),),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text("All Sesssions",
+                style: TextStyle(
+                    letterSpacing: 2.0,
+                    color: Colors.black54,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18
+                ),),
+              IconButton(
+                  icon: Icon(
+                    Icons.add,
+                    color: Colors.black54,
+                  ),
+                  onPressed: () {
+
+                  })
+            ],
+          ),
         ),
-        TableCalendar(
-          calendarController: _calendarController,
-          calendarStyle: CalendarStyle(
-            todayColor: Theme.of(context).accentColor,
-            selectedColor: Theme.of(context).primaryColor,
-            markersColor: Theme.of(context).primaryColorLight,
+        Material(
+          elevation: 5.0,
+          child: TableCalendar(
+            rowHeight: 45.0,
+            calendarController: _calendarController,
+            calendarStyle: CalendarStyle(
+              todayColor: Theme.of(context).accentColor,
+              selectedColor: Theme.of(context).primaryColor,
+              markersColor: Theme.of(context).primaryColorLight,
+            ),
           ),
         ),
       ],
@@ -239,8 +279,12 @@ class _StudentDashboardState extends State<StudentDashboard> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-          child: Text("Enrolled Courses",
+          padding: const EdgeInsets.only(
+              left: 10.0,
+              right: 10.0,
+              top: 30.0
+          ),
+          child: Text("Timeslots",
             style: TextStyle(
                 letterSpacing: 2.0,
                 color: Colors.black54,
