@@ -144,6 +144,7 @@ class _StudentNewCourseState extends State<StudentNewCourse> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+          resizeToAvoidBottomInset: false,
           appBar: AppBar(
             title: Text("Add a course"),
           ),

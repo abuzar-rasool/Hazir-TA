@@ -68,8 +68,8 @@ class _TutorDashboardState extends State<TutorDashboard> {
                     radius: 45,
                     backgroundColor: Colors.white,
                     child: CircleAvatar(
-                      radius: 40,
-                      backgroundImage: NetworkImage("https://i2.wp.com/philanthropywomen.org/wp-content/uploads/2020/06/Screen-Shot-2020-06-29-at-3.15.06-PM.png?fit=277%2C407&ssl=1")
+                      radius: 42,
+                      backgroundImage: AssetImage("profilepic.png")
         ),
                   ),
                   Padding(

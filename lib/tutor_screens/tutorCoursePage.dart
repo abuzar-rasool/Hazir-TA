@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
+import 'package:hazir_ta/student_screens/tutorProfileScreen.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class TutorCoursePage extends StatefulWidget {
@@ -112,77 +113,84 @@ class _TutorCoursePageState extends State<TutorCoursePage> {
               itemBuilder: (context, int index) {
                 return Padding(
                   padding: const EdgeInsets.symmetric(vertical: 10.0),
-                  child: Material(
-                    elevation: 3.0,
-                    borderRadius: BorderRadius.circular(30.0),
-                    child: Container(
-                      height: 100,
-                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(30.0)),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 35.0, vertical: 18.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            CircleAvatar(
-                              radius: 30,
-                              backgroundColor: Theme.of(context).primaryColor,
-                              child: CircleAvatar(
-                                radius: 28,
-                                backgroundImage: NetworkImage(
-                                    "https://i2.wp.com/philanthropywomen.org/wp-content/uploads/2020/06/Screen-Shot-2020-06-29-at-3.15.06-PM.png?fit=277%2C407&ssl=1"),
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => TutorProfile()),
+                      );
+                    },
+                    child: Material(
+                      elevation: 3.0,
+                      borderRadius: BorderRadius.circular(30.0),
+                      child: Container(
+                        height: 100,
+                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(30.0)),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 35.0, vertical: 18.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              CircleAvatar(
+                                radius: 30,
+                                backgroundColor: Theme.of(context).primaryColor,
+                                child: CircleAvatar(
+                                  radius: 28,
+                                  backgroundImage: AssetImage("profilepic.png"),
+                                ),
                               ),
-                            ),
-                            Text(
-                              "Abuzar Rasool",
-                              style: TextStyle(color: Theme.of(context).primaryColor, fontSize: 20, fontWeight: FontWeight.bold),
-                            ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                Text(
-                                  "Avg Ratings",
-                                  style: TextStyle(color: Theme.of(context).primaryColor, fontSize: 12),
-                                ),
-                                Row(
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  children: [
-                                    Icon(
-                                      Icons.star_half,
-                                      color: Theme.of(context).primaryColor,
-                                      size: 18,
-                                    ),
-                                    Center(
-                                      child: Text(
-                                        "4.4",
-                                        style: TextStyle(color: Theme.of(context).primaryColor, fontSize: 12.0),
+                              Text(
+                                "Abuzar Rasool",
+                                style: TextStyle(color: Theme.of(context).primaryColor, fontSize: 20, fontWeight: FontWeight.bold),
+                              ),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  Text(
+                                    "Avg Ratings",
+                                    style: TextStyle(color: Theme.of(context).primaryColor, fontSize: 12),
+                                  ),
+                                  Row(
+                                    crossAxisAlignment: CrossAxisAlignment.end,
+                                    children: [
+                                      Icon(
+                                        Icons.star_half,
+                                        color: Theme.of(context).primaryColor,
+                                        size: 18,
                                       ),
-                                    )
-                                  ],
-                                ),
-                                Text(
-                                  "Course Ratings",
-                                  style: TextStyle(color: Theme.of(context).primaryColor, fontSize: 12),
-                                ),
-                                Row(
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  children: [
-                                    Icon(
-                                      Icons.star_half,
-                                      color: Theme.of(context).primaryColor,
-                                      size: 18,
-                                    ),
-                                    Center(
-                                      child: Text(
-                                        "4.9",
-                                        style: TextStyle(color: Theme.of(context).primaryColor, fontSize: 12.0),
+                                      Center(
+                                        child: Text(
+                                          "4.4",
+                                          style: TextStyle(color: Theme.of(context).primaryColor, fontSize: 12.0),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                  Text(
+                                    "Course Ratings",
+                                    style: TextStyle(color: Theme.of(context).primaryColor, fontSize: 12),
+                                  ),
+                                  Row(
+                                    crossAxisAlignment: CrossAxisAlignment.end,
+                                    children: [
+                                      Icon(
+                                        Icons.star_half,
+                                        color: Theme.of(context).primaryColor,
+                                        size: 18,
                                       ),
-                                    )
-                                  ],
-                                ),
-                              ],
-                            )
-                          ],
+                                      Center(
+                                        child: Text(
+                                          "4.9",
+                                          style: TextStyle(color: Theme.of(context).primaryColor, fontSize: 12.0),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     ),

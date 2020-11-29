@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hazir_ta/student_screens/addNewCourse.dart';
 import 'package:hazir_ta/student_screens/studentAccountSettings.dart';
+import 'package:hazir_ta/student_screens/studentSessionInfo.dart';
+import 'package:hazir_ta/student_screens/studentcoursePage.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class StudentDashboard extends StatefulWidget {
@@ -64,8 +66,8 @@ class _StudentDashboardState extends State<StudentDashboard> {
                     radius: 45,
                     backgroundColor: Colors.white,
                     child: CircleAvatar(
-                        radius: 40,
-                        backgroundImage: NetworkImage("https://i2.wp.com/philanthropywomen.org/wp-content/uploads/2020/06/Screen-Shot-2020-06-29-at-3.15.06-PM.png?fit=277%2C407&ssl=1")
+                        radius: 42,
+                        backgroundImage: AssetImage("profilepic.png")
                     ),
                   ),
                   Padding(
@@ -177,45 +179,53 @@ class _StudentDashboardState extends State<StudentDashboard> {
                 itemBuilder: (context, int index) {
                   return Padding(
                     padding: const EdgeInsets.all(7.0),
-                    child: Material(
-                      borderRadius: BorderRadius.circular(30.0),
-                      elevation: 5.0,
-                      child: Container(
-                        height: 150,
-                        width: 140,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30.0),
-                        ),
-                        child: Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text("CS-335",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    letterSpacing: 1.0,
-                                    color: Theme.of(context).primaryColor,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 22
-                                ),),
-                              Text("Database Systems",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    letterSpacing: 1.0,
-                                    color: Colors.black45,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 12
-                                ),),
-                              Text("T2",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    letterSpacing: 1.0,
-                                    color: Colors.black45,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 12
-                                ),),
-                            ],
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => StudentCoursePage()),
+                        );
+                      },
+                      child: Material(
+                        borderRadius: BorderRadius.circular(30.0),
+                        elevation: 5.0,
+                        child: Container(
+                          height: 150,
+                          width: 140,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30.0),
+                          ),
+                          child: Center(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Text("CS-335",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      letterSpacing: 1.0,
+                                      color: Theme.of(context).primaryColor,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 22
+                                  ),),
+                                Text("Database Systems",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      letterSpacing: 1.0,
+                                      color: Colors.black45,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 12
+                                  ),),
+                                Text("T2",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      letterSpacing: 1.0,
+                                      color: Colors.black45,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 12
+                                  ),),
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -304,46 +314,54 @@ class _StudentDashboardState extends State<StudentDashboard> {
                       vertical: 10.0,
                       horizontal: 20.0
                   ),
-                  child: Material(
-                    elevation: 5.0,
-                    borderRadius: BorderRadius.circular(30.0),
-                    child: Row(
-                      children: [
-                        Container(
-                          height: 90,
-                          width: 280,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(30.0),
-                              color: Colors.white
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => StudentSessionInfoScreen()),
+                      );
+                    },
+                    child: Material(
+                      elevation: 5.0,
+                      borderRadius: BorderRadius.circular(30.0),
+                      child: Row(
+                        children: [
+                          Container(
+                            height: 90,
+                            width: 280,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(30.0),
+                                color: Colors.white
+                            ),
+                            child: Center(
+                                child: Text("General Session",
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                )
+                            ),
                           ),
-                          child: Center(
-                              child: Text("General Session",
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              )
+                          Container(
+                            height: 90,
+                            width: 164,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(30.0),
+                                color: Theme.of(context).primaryColor
+                            ),
+                            child: Center(
+                                child: Text("2:15pm - 3:00pm",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                )
+                            ),
                           ),
-                        ),
-                        Container(
-                          height: 90,
-                          width: 164,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(30.0),
-                              color: Theme.of(context).primaryColor
-                          ),
-                          child: Center(
-                              child: Text("2:15pm - 3:00pm",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              )
-                          ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 );

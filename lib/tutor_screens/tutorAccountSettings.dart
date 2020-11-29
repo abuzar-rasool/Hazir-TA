@@ -31,7 +31,7 @@ class _TutorAccountSettingsState extends State<TutorAccountSettings> {
                   backgroundColor: Theme.of(context).primaryColor,
                   radius: 73.0,
                   child: CircleAvatar(
-                    backgroundImage: NetworkImage("https://i2.wp.com/philanthropywomen.org/wp-content/uploads/2020/06/Screen-Shot-2020-06-29-at-3.15.06-PM.png?fit=277%2C407&ssl=1"),
+                    backgroundImage: AssetImage("profilepic.png"),
                     radius: 70.0,
                     child: Column(
                       mainAxisSize: MainAxisSize.max,

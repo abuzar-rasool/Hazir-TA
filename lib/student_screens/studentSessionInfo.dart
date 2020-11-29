@@ -1,20 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class TutorSessionInfoScreen extends StatefulWidget {
+class StudentSessionInfoScreen extends StatefulWidget {
   @override
-  _TutorSessionInfoScreenState createState() => _TutorSessionInfoScreenState();
+  _StudentSessionInfoScreenState createState() => _StudentSessionInfoScreenState();
 }
 
-class _TutorSessionInfoScreenState extends State<TutorSessionInfoScreen> {
+class _StudentSessionInfoScreenState extends State<StudentSessionInfoScreen> {
 
   infoContent() {
     return ListView(
       scrollDirection: Axis.vertical,
       physics: BouncingScrollPhysics(),
       padding: EdgeInsets.symmetric(
-        horizontal: 30.0,
-        vertical: 20.0
+          horizontal: 30.0,
+          vertical: 20.0
       ),
       children: [
         Padding(
@@ -94,8 +94,8 @@ class _TutorSessionInfoScreenState extends State<TutorSessionInfoScreen> {
               enabledBorder: new OutlineInputBorder(
                 borderRadius: new BorderRadius.circular(10.0),
                 borderSide: new BorderSide(
-                  color: Theme.of(context).primaryColor,
-                  width: 2
+                    color: Theme.of(context).primaryColor,
+                    width: 2
                 ),
               ),
             ),
@@ -233,10 +233,10 @@ class _TutorSessionInfoScreenState extends State<TutorSessionInfoScreen> {
           padding: const EdgeInsets.symmetric(vertical: 10.0),
           child: Text("Booked by",
             style: TextStyle(
-              color: Theme.of(context).primaryColor,
-              fontSize: 18.0,
-              letterSpacing: 2.0,
-              fontWeight: FontWeight.bold
+                color: Theme.of(context).primaryColor,
+                fontSize: 18.0,
+                letterSpacing: 2.0,
+                fontWeight: FontWeight.bold
             ),
           ),
         ),
@@ -275,7 +275,7 @@ class _TutorSessionInfoScreenState extends State<TutorSessionInfoScreen> {
                             ),
                           ),
                           SizedBox(width: 50.0),
-                          Text("Abuzar Rasool",
+                          Text("Faaz Abidi",
                             style: TextStyle(
                                 color: Theme.of(context).primaryColor,
                                 fontSize: 20,
